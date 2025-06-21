@@ -9,9 +9,8 @@ dotenv.config({
 import { StripeResponse, CheckoutItem } from '.'
 
 // Temporary secret key for testing purposes
-process.env.STRIPE_SECRET = 'sk_test_51RR3HR2E5InsmgfMDczfIdHFo4IwUHBr6uT4OVvBxUd5ilokYqNtrp8vP5zTShsvxHtCVkBoamn3yKBGTM3XS52t00K5mGzneq'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET as string)
+const stripeSecret = process.env.STRIPE_SECRET
+const stripe = new Stripe(stripeSecret as string)
 
 function checkURL(url: string): boolean {
   const regex = /^https?:\/\/\w+(\.\w+)*(:[0-9]+)?(\/.*)?$/
